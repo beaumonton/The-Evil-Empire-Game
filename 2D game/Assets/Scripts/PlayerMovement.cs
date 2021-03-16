@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     public Transform feet;
     public LayerMask groundLayers;
 
+    [HideInInspector] public bool isFacingRight = true;
+
     float movementX;
 
     public void Update()
@@ -37,10 +39,12 @@ public class PlayerMovement : MonoBehaviour
         if (movementX > 0f) //If Player is moving right
         {
             transform.localScale = new Vector3(3f, 3f, 3f); //Must equal Player Object's scale values
+            isFacingRight = true;
         }
         else if (movementX < 0f)//If Player is moving left
         {
             transform.localScale = new Vector3(-3f, 3f, 3f); //Must equal Player Object's scale values with -1 * x value
+            isFacingRight = false;
         }
 
         anim.SetBool("isGrounded", isGrounded());
