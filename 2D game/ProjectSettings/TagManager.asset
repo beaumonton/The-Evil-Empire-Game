@@ -5,7 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+<<<<<<< HEAD
   - house
+=======
+  - Bullet
+>>>>>>> parent of 820b56f (MechanicsUpdate)
   layers:
   - Default
   - TransparentFX
