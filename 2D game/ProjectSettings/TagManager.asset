@@ -41,17 +41,23 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: BackgroundWayback
+  - name: SkyTop
     uniqueID: 1519559747
     locked: 0
-  - name: BackgroundBack
+  - name: SkyTop2
     uniqueID: 3613401799
     locked: 0
-  - name: BackgroundFront
+  - name: CityFarBack
     uniqueID: 3573745393
+    locked: 0
+  - name: Cityback
+    uniqueID: 483478031
     locked: 0
   - name: Foreground
     uniqueID: 2585914829
+    locked: 0
+  - name: CityNear
+    uniqueID: 3604584551
     locked: 0
   - name: Default
     uniqueID: 0
