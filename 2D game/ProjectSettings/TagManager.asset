@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - house
   layers:
   - Default
   - TransparentFX
@@ -15,8 +16,8 @@ TagManager:
   - 
   - 
   - Ground
-  - 
-  - 
+  - background
+  - Camerabounds
   - 
   - 
   - 
@@ -39,8 +40,14 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background02
+    uniqueID: 4261517289
+    locked: 0
   - name: Background01
     uniqueID: 3573745393
+    locked: 0
+  - name: foreground
+    uniqueID: 3430381847
     locked: 0
   - name: Default
     uniqueID: 0
