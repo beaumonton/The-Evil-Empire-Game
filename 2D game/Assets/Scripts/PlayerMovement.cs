@@ -6,8 +6,15 @@ public class PlayerMovement : MonoBehaviour
 {
     public float movementSpeed;
     public Rigidbody2D rb;
-
     public Animator anim;
+    public BoxCollider2D playerCollider;
+
+    public float crouchHeightPercent = 0.5f;
+    private Vector2 standColliderSize;
+    private Vector2 standColliderOffset;
+    private Vector2 crouchColliderSize;
+    private Vector2 crouchColliderOffset;
+
 
     public float jumpForce = 30f;
     public Transform feet;
@@ -17,6 +24,15 @@ public class PlayerMovement : MonoBehaviour
 
     float movementX;
 
+    private void Awake()
+    {
+        standColliderSize = playerCollider.size;
+        standColliderOffset = playerCollider.offset;
+
+        crouchColliderSize = new Vector2(standColliderSize.x, standColliderSize.y * crouchHeightPercent);
+        crouchColliderOffset = new Vector2(standColliderOffset.x, standColliderOffset.y * crouchHeightPercent);
+    }
+
     public void Update()
     {
         movementX = Input.GetAxisRaw("Horizontal"); 
@@ -25,6 +41,17 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded())
         {
             Jump();
+        }
+
+        if(Input.GetKey(KeyCode.S) && isGrounded())
+        {
+            anim.SetBool("isCrouching", true);
+            Crouch();
+        }
+        else
+        {
+            anim.SetBool("isCrouching", false);
+            StandUp();
         }
 
         if(Mathf.Abs(movementX) > 0.05f)
@@ -62,6 +89,18 @@ public class PlayerMovement : MonoBehaviour
         Vector2 movement = new Vector2(rb.velocity.x, jumpForce);
 
         rb.velocity = movement;
+    }
+
+    void Crouch()
+    {
+        playerCollider.size = crouchColliderSize;
+        playerCollider.offset = crouchColliderOffset;
+    }
+
+    void StandUp()
+    {
+        playerCollider.size = standColliderSize;
+        playerCollider.offset = standColliderOffset;
     }
 
     public bool isGrounded() //Returns true if player is on the ground
