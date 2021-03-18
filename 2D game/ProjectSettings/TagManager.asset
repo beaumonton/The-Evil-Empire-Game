@@ -5,7 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+<<<<<<< HEAD
   - house
+=======
+  - Bullet
+  - Enemy
+>>>>>>> BeauBranch
   layers:
   - Default
   - TransparentFX
