@@ -59,6 +59,9 @@ TagManager:
   - name: CityNear
     uniqueID: 3604584551
     locked: 0
+  - name: Indoors
+    uniqueID: 2308244719
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
