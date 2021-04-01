@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 481438444604269220}
   - component: {fileID: 481438444604269243}
   - component: {fileID: 481438444604269242}
+  - component: {fileID: 2472478246462730990}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -161,7 +162,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0.05107422, y: -0.1706863}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -211,6 +212,8 @@ MonoBehaviour:
   movementSpeed: 12
   rb: {fileID: 481438444604269217}
   anim: {fileID: 481438444604269220}
+  playerCollider: {fileID: 481438444604269216}
+  crouchHeightPercent: 0.5
   jumpForce: 25
   feet: {fileID: 481438443085129213}
   groundLayers:
@@ -267,3 +270,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeSlowMultiplier: 2
   slowCooldown: 5
+--- !u!114 &2472478246462730990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481438444604269218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3592e77a6b48ff947b7ec886ae728021, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
