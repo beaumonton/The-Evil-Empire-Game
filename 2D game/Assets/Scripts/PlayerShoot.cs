@@ -5,6 +5,8 @@ public class PlayerShoot : MonoBehaviour
 {
     public float fireRate = 5f;
     public Transform firingPoint;
+    public Transform firingCrouchPoint;
+    public Transform firingRunPoint;
     public GameObject bulletPrefab;
     public Animator anim;
 
@@ -30,6 +32,17 @@ public class PlayerShoot : MonoBehaviour
     void Shoot()
     {
         float angle = pm.isFacingRight ? 0f : 180f;
-        Instantiate(bulletPrefab, firingPoint.position, Quaternion.Euler(new Vector3(0f, 0f, angle)));
+        if (anim.GetBool("isCrouching"))
+        {
+            Instantiate(bulletPrefab, firingCrouchPoint.position, Quaternion.Euler(new Vector3(0f, 0f, angle)));
+        }
+        else if(anim.GetBool("isRunning"))
+        {
+            Instantiate(bulletPrefab, firingRunPoint.position, Quaternion.Euler(new Vector3(0f, 0f, angle)));
+        }
+        else
+        {
+            Instantiate(bulletPrefab, firingPoint.position, Quaternion.Euler(new Vector3(0f, 0f, angle)));
+        }
     }
 }
