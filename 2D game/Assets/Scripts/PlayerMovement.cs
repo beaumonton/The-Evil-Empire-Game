@@ -8,15 +8,23 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public Animator anim;
     public BoxCollider2D playerCollider;
+    public CircleCollider2D playerCrouchCollider;
 
-    public float crouchHeightPercent = 0.5f;
-    private Vector2 standColliderSize;
-    private Vector2 standColliderOffset;
-    private Vector2 crouchColliderSize;
-    private Vector2 crouchColliderOffset;
+    //stores jump force
+    public float jumpForce = 25f;
+    
+    //stores the velocity.x multiplier for sliding 
+    public float slideSpeed = 2f;
 
+    //stores slide length
+    public float maxSlideTime = 2f;
 
-    public float jumpForce = 30f;
+    //stores counter for slide time
+    private float slideTimer;
+
+    //bool for activating slide
+    private bool sliding = false;
+
     public Transform feet;
     public LayerMask groundLayers;
 
@@ -24,37 +32,68 @@ public class PlayerMovement : MonoBehaviour
 
     float movementX;
 
-    private void Awake()
-    {
-        standColliderSize = playerCollider.size;
-        standColliderOffset = playerCollider.offset;
-
-        crouchColliderSize = new Vector2(standColliderSize.x, standColliderSize.y * crouchHeightPercent);
-        crouchColliderOffset = new Vector2(standColliderOffset.x, standColliderOffset.y * crouchHeightPercent);
-    }
 
     public void Update()
     {
         movementX = Input.GetAxisRaw("Horizontal"); 
         //movementX = Input.GetAxis("Horizontal"); Smoother Movement
 
+        //Jump
         if (Input.GetButtonDown("Jump") && isGrounded())
         {
             Jump();
         }
 
-        if(Input.GetKey(KeyCode.S) && isGrounded())
+        //Crouch with no horizontal movement
+        if(Input.GetKey(KeyCode.S) && Mathf.Abs(movementX) == 0f && isGrounded())
         {
             anim.SetBool("isCrouching", true);
-            Crouch();
+            DisableBoxCollider();
         }
         else
         {
             anim.SetBool("isCrouching", false);
-            StandUp();
+            EnableBoxCollider();
         }
 
-        if(Mathf.Abs(movementX) > 0.05f)
+        /*
+        //Old crouch with unlimited slide
+        if (Input.GetKey(KeyCode.S) && isGrounded())
+        {
+            anim.SetBool("isCrouching", true);
+            DisableBoxCollider();
+        }
+        else
+        {
+            anim.SetBool("isCrouching", false);
+            EnableBoxCollider();
+        }*/
+
+        /*
+        //Slide
+        if (Input.GetKeyDown(KeyCode.LeftControl) && sliding == false && isGrounded() && (Mathf.Abs(movementX) > 0.05f))
+        {
+            slideTimer = 0;
+
+            anim.SetBool("isSliding", true);
+            DisableBoxCollider();
+            sliding = true;
+
+            while (sliding && isGrounded())
+            {
+                slideTimer += Time.deltaTime;
+                if (slideTimer > maxSlideTime)
+                {
+                    sliding = false;
+                    anim.SetBool("isSliding", false);
+                    EnableBoxCollider();
+                }
+            }
+        }
+        */
+
+        //Sets run animation
+        if (Mathf.Abs(movementX) > 0.05f/*&& sliding == false*/ && isGrounded())
         {
             anim.SetBool("isRunning", true);
         }
@@ -63,6 +102,8 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("isRunning", false);
         }
 
+
+        //Flip player depending on direction
         if (movementX > 0f) //If Player is moving right
         {
             transform.localScale = new Vector3(3f, 3f, 3f); //Must equal Player Object's scale values
@@ -75,6 +116,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         anim.SetBool("isGrounded", isGrounded());
+        //Debug.Log("SLIDING? " + sliding + " GROUNDED? = " + isGrounded());
     }
 
     private void FixedUpdate()
@@ -91,16 +133,16 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = movement;
     }
 
-    void Crouch()
+    void DisableBoxCollider()
     {
-        playerCollider.size = crouchColliderSize;
-        playerCollider.offset = crouchColliderOffset;
+        playerCollider.enabled = false;
+        //Debug.Log("Collider.enabled = " + playerCollider.enabled);
     }
 
-    void StandUp()
+    void EnableBoxCollider()
     {
-        playerCollider.size = standColliderSize;
-        playerCollider.offset = standColliderOffset;
+        playerCollider.enabled = true;
+        //Debug.Log("Collider.enabled = " + playerCollider.enabled);
     }
 
     public bool isGrounded() //Returns true if player is on the ground
