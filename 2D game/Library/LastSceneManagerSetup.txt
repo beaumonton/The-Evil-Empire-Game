@@ -1,9 +1,5 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/Level_Willie2.unity
-=======
 - path: Assets/Scenes/PrototypeScene_033121_Beau.unity
->>>>>>> BeauBranch
   isLoaded: 1
   isActive: 1
   isSubScene: 0

@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShootingEnemy_Left Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5061881240735355425, guid: 11f39b3e20334b7499235c83735a2fce,
+        type: 3}
+      propertyPath: isFacingRight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5061881240735355437, guid: 11f39b3e20334b7499235c83735a2fce,
         type: 3}
       propertyPath: m_RootOrder
@@ -72,11 +77,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5132997576519016660, guid: 11f39b3e20334b7499235c83735a2fce,
-        type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 7588846290701880378, guid: 10c7a342495b49341b5fbfda744c4b58,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11f39b3e20334b7499235c83735a2fce, type: 3}

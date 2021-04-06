@@ -11,7 +11,7 @@ public class EnemyPatrol : MonoBehaviour
     public Transform groundCheck;
     public Transform wallCheck;
 
-    [HideInInspector] public bool isFacingRight = true;
+    public bool isFacingRight = true;
 
     RaycastHit2D hitGround;
     RaycastHit2D hitWall;

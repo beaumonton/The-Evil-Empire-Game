@@ -183,6 +183,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   groundCheck: {fileID: 5061881239736359236}
+  wallCheck: {fileID: 0}
   isFacingRight: 1
 --- !u!114 &4040411147735677141
 MonoBehaviour:
