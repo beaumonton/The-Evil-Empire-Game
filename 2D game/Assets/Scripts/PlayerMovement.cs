@@ -12,19 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     //stores jump force
     public float jumpForce = 25f;
-    
-    //stores the velocity.x multiplier for sliding 
-    public float slideSpeed = 2f;
-
-    //stores slide length
-    public float maxSlideTime = 2f;
-
-    //stores counter for slide time
-    private float slideTimer;
-
-    //bool for activating slide
-    private bool sliding = false;
-
+ 
     public Transform feet;
     public LayerMask groundLayers;
 
@@ -55,42 +43,6 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("isCrouching", false);
             EnableBoxCollider();
         }
-
-        /*
-        //Old crouch with unlimited slide
-        if (Input.GetKey(KeyCode.S) && isGrounded())
-        {
-            anim.SetBool("isCrouching", true);
-            DisableBoxCollider();
-        }
-        else
-        {
-            anim.SetBool("isCrouching", false);
-            EnableBoxCollider();
-        }*/
-
-        /*
-        //Slide
-        if (Input.GetKeyDown(KeyCode.LeftControl) && sliding == false && isGrounded() && (Mathf.Abs(movementX) > 0.05f))
-        {
-            slideTimer = 0;
-
-            anim.SetBool("isSliding", true);
-            DisableBoxCollider();
-            sliding = true;
-
-            while (sliding && isGrounded())
-            {
-                slideTimer += Time.deltaTime;
-                if (slideTimer > maxSlideTime)
-                {
-                    sliding = false;
-                    anim.SetBool("isSliding", false);
-                    EnableBoxCollider();
-                }
-            }
-        }
-        */
 
         //Sets run animation
         if (Mathf.Abs(movementX) > 0.05f/*&& sliding == false*/ && isGrounded())

@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/PrototypeScene_033121_Beau.unity
+- path: Assets/Scenes/BossPrototype_Beau.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

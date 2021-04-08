@@ -25,7 +25,7 @@ public class LevelManager : MonoBehaviour
     public void Respawn()
     {
         GameObject player = Instantiate(playerPrefab, respawnPoint.position, Quaternion.identity);
-        cam.Follow = player.transform;
+        //cam.Follow = player.transform;
     }
 
     public void IncreaseCurrency(int amount)

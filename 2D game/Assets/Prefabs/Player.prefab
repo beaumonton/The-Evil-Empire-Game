@@ -147,7 +147,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.1833333, y: 1.1166667}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -162,7 +162,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 481438444604269218}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 4c9f83afca842de498198087680f9dab, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -171,7 +171,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.1833333, y: 1.1166667}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 1.1833333, y: 1.1166667}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -188,7 +188,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 481438444604269218}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 4c9f83afca842de498198087680f9dab, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -303,8 +303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9649a5fc47e313649843947d0cfa0726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeSlowMultiplier: 2
-  slowCooldown: 5
+  timeSlowMultiplier: 2.5
+  slowAmt: 0.2
 --- !u!1 &782955731548753932
 GameObject:
   m_ObjectHideFlags: 0
