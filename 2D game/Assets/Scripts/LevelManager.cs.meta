@@ -3,7 +3,12 @@ guid: 034e22f6a0f3a9d4588be9f5c781c581
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - respawnPoint: {instanceID: 0}
+  - playerPrefab: {fileID: 481438444604269218, guid: 8a108eb7989bd2345a9586d302c56eff,
+      type: 3}
+  - cam: {instanceID: 0}
+  - hourglassUI: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
