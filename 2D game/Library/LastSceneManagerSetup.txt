@@ -1,5 +1,9 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/level1-5.3.unity
+=======
+- path: Assets/Scenes/BossPrototype_Beau.unity
+>>>>>>> BeauBranch_3_31_21
   isLoaded: 1
   isActive: 1
   isSubScene: 0

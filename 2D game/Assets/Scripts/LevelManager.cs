@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
 
-    public Transform RespawnPoint;
+    public Transform respawnPoint;
     public GameObject playerPrefab;
 
     public CinemachineVirtualCameraBase cam;
@@ -24,7 +24,7 @@ public class LevelManager : MonoBehaviour
 
     public void Respawn()
     {
-        GameObject player = Instantiate(playerPrefab, RespawnPoint.position, Quaternion.identity);
+        GameObject player = Instantiate(playerPrefab, respawnPoint.position, Quaternion.identity);
         //cam.Follow = player.transform;
     }
 

@@ -5,7 +5,7 @@ public class EnemyShoot : MonoBehaviour
     public float fireRate = 5f;
     public Transform firingPoint;
     public GameObject bulletPrefab;
-    public Animator anim;
+    //public Animator anim;
 
     float timeUntilFire;
     EnemyPatrol ep;

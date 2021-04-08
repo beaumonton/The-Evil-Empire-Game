@@ -4,15 +4,16 @@ using UnityEngine;
 public class TimeManager : MonoBehaviour
 {
     public float timeSlowMultiplier = 2f;
-    public float slowCooldown = 5f;
+    public float slowAmt = 0.1f;
 
     private float timeUntilCool;
 
     private void Update()
     {
-        if (Input.GetMouseButton(1)) //&& timeUntilCool < Time.time)
+        if (Input.GetMouseButton(1) && SlowTimeBar.instance.getCurrentSlowAmt() > 1f)
         {
             SlowTime();
+            SlowTimeBar.instance.UseSlow(slowAmt);
             //timeUntilCool = Time.time + slowCooldown;
         }
         else
